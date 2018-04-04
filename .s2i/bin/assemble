@@ -21,6 +21,8 @@ pip install "Sphinx==${SPHINX_VERSION}"
 
 # Install Sphinx theme from RTD so available as default.
 
+pip install sphinx_rtd_theme
+
 # This S2I assemble script is only used when creating the custom image.
 # For when running the image, or using it as a S2I builder, we use a second
 # set of custom S2I scripts. We now need to move these into the correct
