@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -x
+
+set -eo pipefail
+
+exec mod_wsgi-express start-server \
+    --log-to-terminal --port 8080 \
+    --application-type static \
+    --document-root /opt/app-root/htdocs

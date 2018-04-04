@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -x
+
+set -eo pipefail
+
+# Install any packages defined in a requirements.txt file.
+
+if [ -f requirements.txt ]; then
+    pip install -r requirements.txt
+fi
+
+# Generate the static files for the site using Sphinx makefile.
+
+cd ./${DOCUMENT_ROOT}
+
+make html BUILDDIR=/opt/app-root/htdocs
+
+# Fix up permissions.
+
+fix-permissions /opt/app-root/src

@@ -1,0 +1,38 @@
+#!/bin/bash
+
+set -x
+
+set -eo pipefail
+
+# Make sure latest pip packaging tools installed.
+
+pip install -U pip setuptools wheel
+
+# Install mod_wsgi-express for hosting static files.
+
+pip install mod_wsgi
+
+# Install the Sphinx package. This will be installed in the Python
+# virtual environment under the application root directory.
+
+pip install 'Sphinx<1.8'
+
+# This S2I assemble script is only used when creating the custom image.
+# For when running the image, or using it as a S2I builder, we use a second
+# set of custom S2I scripts. We now need to move these into the correct
+# location and have the custom image use those by dropping in an image
+# metadata file which overrides the labels of the base image.
+
+mkdir -p /tmp/.s2i
+
+mv /tmp/src/builder/image_metadata.json /tmp/.s2i/image_metadata.json
+
+mv /tmp/src/builder /opt/app-root/builder
+
+# Create htdocs directory to hold generated static files.
+
+mkdir -p /opt/app-root/htdocs
+
+# Fix up permissions.
+
+fix-permissions /opt/app-root
