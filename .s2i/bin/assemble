@@ -33,6 +33,10 @@ mv /tmp/src/builder /opt/app-root/builder
 
 mkdir -p /opt/app-root/htdocs
 
+# Make sure remove source files we didn't use.
+
+rm -rf /tmp/src
+
 # Fix up permissions.
 
 fix-permissions /opt/app-root
