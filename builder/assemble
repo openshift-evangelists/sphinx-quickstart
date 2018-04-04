@@ -4,6 +4,10 @@ set -x
 
 set -eo pipefail
 
+# Move files from Git repository into place.
+
+mv /tmp/src/* ./
+
 # Install any packages defined in a requirements.txt file.
 
 if [ -f requirements.txt ]; then
