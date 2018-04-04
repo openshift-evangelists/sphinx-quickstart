@@ -10,8 +10,10 @@ mv /tmp/src/* ./
 
 # Install any packages defined in a requirements.txt file.
 
+REQUIREMENTS_TXT=%{REQUIREMENTS_TXT:-requirements.txt}
+
 if [ -f requirements.txt ]; then
-    pip install -r requirements.txt
+    pip install -r ${REQUIREMENTS_TXT}
 fi
 
 # Generate the static files for the site using Sphinx makefile.
