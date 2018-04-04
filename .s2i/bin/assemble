@@ -15,7 +15,9 @@ pip install mod_wsgi
 # Install the Sphinx package. This will be installed in the Python
 # virtual environment under the application root directory.
 
-pip install 'Sphinx<1.8'
+SPHINX_VERSION=${SPHINX_VERSION:-1.7.2}
+
+pip install "Sphinx==${SPHINX_VERSION}"
 
 # This S2I assemble script is only used when creating the custom image.
 # For when running the image, or using it as a S2I builder, we use a second
