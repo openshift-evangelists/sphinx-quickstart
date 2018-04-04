@@ -1,0 +1,9 @@
+{
+  "labels": [
+    {"io.k8s.display-name":"Sphinx Static Site Builder"},
+    {"io.k8s.description":"Sphinx Static Site Builder."},
+    {"io.openshift.s2i.scripts-url":"image:///opt/app-root/builder"},
+    {"io.s2i.scripts-url":"image:///opt/app-root/builder"},
+    {"io.openshift.tags":"builder,python,sphinx"}
+  ]
+}
