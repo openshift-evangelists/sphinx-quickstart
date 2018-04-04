@@ -10,9 +10,9 @@ mv /tmp/src/* ./
 
 # Install any packages defined in a requirements.txt file.
 
-REQUIREMENTS_TXT=%{REQUIREMENTS_TXT:-requirements.txt}
+REQUIREMENTS_TXT=${REQUIREMENTS_TXT:-requirements.txt}
 
-if [ -f requirements.txt ]; then
+if [ -f ${REQUIREMENTS_TXT} ]; then
     pip install -r ${REQUIREMENTS_TXT}
 fi
 
